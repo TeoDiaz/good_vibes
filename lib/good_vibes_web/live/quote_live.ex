@@ -21,8 +21,13 @@ defmodule GoodVibesWeb.QuoteLive do
     socket = assign(socket, :quote, get_random_quote())
     {:noreply, socket}
   end
-  
+
   def handle_event("next-quote", _key, socket) do
+    {:noreply, socket}
+  end
+
+  def handle_event("next-quote-button", _, socket) do
+    socket = assign(socket, :quote, get_random_quote())
     {:noreply, socket}
   end
 
