@@ -7,8 +7,6 @@ defmodule GoodVibes.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      GoodVibes.Repo,
       # Start the Telemetry supervisor
       GoodVibesWeb.Telemetry,
       # Start the PubSub system
