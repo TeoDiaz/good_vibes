@@ -3,7 +3,7 @@ defmodule GoodVibesWeb.QuoteLive do
 
   @quotes "priv/quotes.json"
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, quote: get_random_quote())}
+    {:ok, assign(socket, :quote, get_random_quote())}
   end
 
   def render(assigns) do
@@ -15,6 +15,15 @@ defmodule GoodVibesWeb.QuoteLive do
       %{"life_quotes" => list} -> Enum.random(list)
       _ -> "No quote today"
     end
+  end
+
+  def handle_event("next-quote", %{"key" => " "}, socket) do
+    socket = assign(socket, :quote, get_random_quote())
+    {:noreply, socket}
+  end
+  
+  def handle_event("next-quote", _key, socket) do
+    {:noreply, socket}
   end
 
   defp get_quotes_list do

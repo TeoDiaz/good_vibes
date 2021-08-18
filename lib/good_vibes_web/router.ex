@@ -18,8 +18,7 @@ defmodule GoodVibesWeb.Router do
     pipe_through :browser
 
     live "/phoenix", PageLive, :index
-    live "/", MainLive
-    live "/life_quotes", QuoteLive
+    live "/", QuoteLive
     live "/harry_potter", HarryPotterLive
   end
 
