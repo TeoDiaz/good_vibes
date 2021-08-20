@@ -28,14 +28,15 @@ defmodule GoodVibesWeb.QuoteLive do
   end
 
   def handle_event("next-quote-button", _, socket) do
-    socket = assign(socket, :quote, get_random_quote())
+    send(self(), {:get_quote, socket.assigns})
+
     {:noreply, socket}
   end
 
   def handle_info({:get_quote, %{quote: previous_quote}}, socket) do
     case get_random_quote() do
       next_quote when next_quote == previous_quote ->
-        send(self(), {:get_quote, previous_quote})
+        send(self(), {:get_quote, socket.assigns})
 
         {:noreply, socket}
 

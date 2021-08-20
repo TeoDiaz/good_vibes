@@ -10,6 +10,18 @@ header {
   @apply max-w-full mx-auto;
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.github-logo {
+  margin: 0.5em;
+}
+
 h1 {
   @apply text-center text-cool-gray-900 font-extrabold text-4xl mb-8;
 }
