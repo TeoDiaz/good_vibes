@@ -11,27 +11,27 @@ header {
 }
 
 .header {
-  @apply flex justify-end absolute w-full top-4 text-xl text-gray-600
+  @apply flex justify-end absolute w-full top-4 text-xl text-gray-600;
 }
 
 .es-button {
-  @apply mr-4 
+  @apply mr-4;
 }
 
 .en-button {
-  @apply mr-8
+  @apply mr-8;
 }
 
 .footer {
-  @apply flex justify-end absolute w-full bottom-0
+  @apply flex justify-end absolute w-full bottom-0;
 }
 
 .github-logo {
-  @apply mr-2 mb-2
+  @apply mr-2 mb-2;
 }
 
 .linkedin-logo {
-  @apply mr-2 -mb-2 w-11
+  @apply mr-2 -mb-2 w-11;
 }
 
 h1 {
