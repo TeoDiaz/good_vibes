@@ -35,7 +35,7 @@ header {
 }
 
 h1 {
-  @apply text-center text-cool-gray-900 font-extrabold text-4xl mb-8;
+  @apply text-center text-cool-gray-900 font-extrabold mb-8;
 }
 
 ul.examples {
