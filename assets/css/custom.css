@@ -10,16 +10,28 @@ header {
   @apply max-w-full mx-auto;
 }
 
+.header {
+  @apply flex justify-end absolute w-full top-4 text-xl text-gray-600
+}
+
+.es-button {
+  @apply mr-4 
+}
+
+.en-button {
+  @apply mr-8
+}
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+  @apply flex justify-end absolute w-full bottom-0
 }
 
 .github-logo {
-  margin: 0.5em;
+  @apply mr-2 mb-2
+}
+
+.linkedin-logo {
+  @apply mr-2 -mb-2 w-11
 }
 
 h1 {
