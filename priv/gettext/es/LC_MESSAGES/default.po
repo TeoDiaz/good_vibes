@@ -29,7 +29,7 @@ msgstr ""
 #, elixir-format
 #: lib/good_vibes_web/templates/quote/quote.html.leex:8
 msgid "Your daily quote"
-msgstr "Tu frase diaria"
+msgstr "Tu frase del dia"
 
 #, elixir-format
 #: lib/good_vibes_web/templates/quote/quote.html.leex:19

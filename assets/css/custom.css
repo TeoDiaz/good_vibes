@@ -35,19 +35,7 @@ header {
 }
 
 h1 {
-  @apply text-center text-cool-gray-900 font-extrabold mb-8;
-}
-
-ul.examples {
-  @apply mt-8 text-2xl mx-auto max-w-xs list-disc;
-
-  li {
-    @apply mt-3;
-
-    a {
-      @apply underline;
-    }
-  }
+  @apply text-center text-cool-gray-900 font-extrabold text-4xl mb-8;
 }
 
 .icon {
