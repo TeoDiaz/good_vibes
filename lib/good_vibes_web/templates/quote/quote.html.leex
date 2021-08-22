@@ -5,18 +5,18 @@
             <div class="mt-8 max-w-5xl mx-auto px-8">
                <h1 class="text-center">
                   <span class="py-4 block text-xl text-gray-600 leading-tight">
-                     <%= @title %>
+                     <%= @x && gettext("Your daily quote") %>
                   </span>
                   <span class="md:text-5xl sm:text-sm font-bold leading-none">
                      <%= @quote %>
                   </span>
                </h1>
                <div class="px-4 font-semibold text-center text-gray-600">
-                  Hit
+                  <%= @x && gettext("Hit") %>
                   <button class="py-2 px-4 font-semibold rounded-lg shadow-md text-black bg-white-500 hover:bg-white-700" phx-click="next-quote-button">
-                  Space
+                     <%= @x && gettext("Space") %>
                   </button>
-                  or Click
+                  <%= @x && gettext("or Click") %>
                </div>
             </div>
          </div>

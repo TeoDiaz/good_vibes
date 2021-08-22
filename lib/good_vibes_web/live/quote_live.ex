@@ -2,14 +2,15 @@ defmodule GoodVibesWeb.QuoteLive do
   use GoodVibesWeb, :live_view
 
   @quotes "priv/quotes.json"
-  @default_language "en"
-  def mount(_params, _session, socket) do
-    {:ok,
-     assign(socket,
-       title: get_title_by_language(@default_language),
-       quote: get_random_quote(@default_language),
-       laguage: @default_language
-     )}
+  def mount(_params, session, socket) do
+    locale =
+      case session do
+        %{"locale" => locale} -> locale
+        _ -> "en"
+      end
+
+    Gettext.put_locale(locale)
+    {:ok, assign(socket, quote: get_random_quote(locale), laguage: locale, x: 0)}
   end
 
   def render(assigns) do
@@ -21,24 +22,26 @@ defmodule GoodVibesWeb.QuoteLive do
 
     case get_quotes_list() do
       %{^list_name => [_ | _] = list} -> Enum.random(list)
-      _ -> get_empty_message_by_language(language)
+      _ -> gettext("No quote today")
     end
   end
 
   def handle_event("es-language", _, socket) do
-    socket = assign(socket, laguage: "es", title: get_title_by_language("es"))
+    Gettext.put_locale("es")
+    socket = assign(socket, laguage: "es")
 
     send(self(), {:get_quote, socket.assigns})
 
-    {:noreply, socket}
+    {:noreply, force_rerender(socket)}
   end
 
   def handle_event("en-language", _, socket) do
-    socket = assign(socket, laguage: "en", title: get_title_by_language("en"))
+    Gettext.put_locale("en")
+    socket = assign(socket, laguage: "en")
 
     send(self(), {:get_quote, socket.assigns})
 
-    {:noreply, socket}
+    {:noreply, force_rerender(socket)}
   end
 
   def handle_event("next-quote", %{"key" => " "}, socket) do
@@ -76,9 +79,7 @@ defmodule GoodVibesWeb.QuoteLive do
     |> Jason.decode!()
   end
 
-  defp get_empty_message_by_language("en"), do: "No quote today"
-  defp get_empty_message_by_language("es"), do: "Sin frases para hoy"
-
-  defp get_title_by_language("en"), do: "Your daily quote"
-  defp get_title_by_language("es"), do: "Tu frase de hoy"
+  defp force_rerender(socket, fingerprint \\ :x) do
+    update(socket, fingerprint, &(&1 + 1))
+  end
 end

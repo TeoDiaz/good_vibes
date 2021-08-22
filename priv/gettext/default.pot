@@ -1,0 +1,41 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/quote.html.leex:15
+msgid "Hit"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/quote.html.leex:17
+msgid "Space"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/live/page_live.html.leex:2
+msgid "Welcome to %{name}!"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/quote.html.leex:8
+msgid "Your daily quote"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/quote.html.leex:19
+msgid "or Click"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/live/quote_live.ex:20
+msgid "No quote today"
+msgstr ""
