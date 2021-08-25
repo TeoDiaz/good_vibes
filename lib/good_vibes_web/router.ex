@@ -20,7 +20,7 @@ defmodule GoodVibesWeb.Router do
 
     live "/phoenix", PageLive, :index
     live "/", QuoteLive
-    live "/harry_potter", HarryPotterLive
+    live "/add_quote", AddQuoteLive
   end
 
   # Other scopes may use custom stacks.

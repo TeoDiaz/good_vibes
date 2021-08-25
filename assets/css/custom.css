@@ -131,26 +131,6 @@ h1 {
   button:hover {
     @apply bg-white;
   }
-
-  .controls {
-    @apply flex items-center justify-end;
-
-    form {
-      @apply flex items-center;
-
-      label {
-        @apply uppercase tracking-wide text-indigo-800 text-xs font-semibold mr-2;
-      }
-
-      select {
-        @apply appearance-none bg-cool-gray-200 border-indigo-300 border text-indigo-700 py-2 px-4 rounded-lg leading-tight font-semibold cursor-pointer mr-2 h-10;
-      }
-
-      select:focus {
-        @apply outline-none bg-white border-indigo-500;
-      }
-    }
-  }
 }
 
 /* Search */
@@ -286,34 +266,6 @@ h1 {
 
       select:focus {
         @apply outline-none bg-cool-gray-200 border-cool-gray-500;
-      }
-
-      .prices {
-        @apply flex;
-
-        input[type="checkbox"] {
-          @apply opacity-0 fixed w-0;
-        }
-
-        input[type="checkbox"]:checked + label {
-          @apply bg-indigo-300 border-indigo-500;
-        }
-
-        label {
-          @apply inline-block border-t border-b border-cool-gray-400 bg-cool-gray-300 py-3 px-4 text-lg font-semibold leading-5;
-        }
-
-        label:hover {
-          @apply bg-cool-gray-400 cursor-pointer;
-        }
-
-        label:first-of-type {
-          @apply border-l border-r rounded-l-lg;
-        }
-
-        label:last-of-type {
-          @apply border-l border-r rounded-r-lg;
-        }
       }
 
       a {
