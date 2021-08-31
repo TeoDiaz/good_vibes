@@ -11,16 +11,6 @@ msgid ""
 msgstr ""
 
 #, elixir-format
-#: lib/good_vibes_web/templates/quote/quote.html.leex:15
-msgid "Hit"
-msgstr ""
-
-#, elixir-format
-#: lib/good_vibes_web/templates/quote/quote.html.leex:17
-msgid "Space"
-msgstr ""
-
-#, elixir-format
 #: lib/good_vibes_web/live/page_live.html.leex:2
 msgid "Welcome to %{name}!"
 msgstr ""
@@ -31,11 +21,66 @@ msgid "Your daily quote"
 msgstr ""
 
 #, elixir-format
-#: lib/good_vibes_web/templates/quote/quote.html.leex:19
-msgid "or Click"
+#: lib/good_vibes_web/live/quote_live.ex:25
+msgid "No quote today"
 msgstr ""
 
 #, elixir-format
-#: lib/good_vibes_web/live/quote_live.ex:20
-msgid "No quote today"
+#: lib/good_vibes_web/templates/quote/quote.html.leex:15
+msgid "Press Click to get another quote"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/quote.html.leex:25
+msgid "Add your quote"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:24
+msgid "Country"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:16
+msgid "Name"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:5
+msgid "THANKS FOR CONTRIBUTING"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:20
+msgid "Your Quote"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:25
+msgid "Your country"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:10
+msgid "Your quote was sent successfully"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:17
+msgid "Your name"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:21
+msgid "Max 100 characters"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:27
+msgid "Send"
+msgstr ""
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:27
+msgid "Sending..."
 msgstr ""

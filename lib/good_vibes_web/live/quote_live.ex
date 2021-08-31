@@ -10,7 +10,7 @@ defmodule GoodVibesWeb.QuoteLive do
       end
 
     Gettext.put_locale(locale)
-    {:ok, assign(socket, quote: get_random_quote(locale), laguage: locale, x: 0)}
+    {:ok, assign(socket, quote: get_random_quote(locale), language: locale, x: 0)}
   end
 
   def render(assigns) do
@@ -28,7 +28,7 @@ defmodule GoodVibesWeb.QuoteLive do
 
   def handle_event("es-language", _, socket) do
     Gettext.put_locale("es")
-    socket = assign(socket, laguage: "es")
+    socket = assign(socket, language: "es")
 
     send(self(), {:get_quote, socket.assigns})
 
@@ -37,30 +37,20 @@ defmodule GoodVibesWeb.QuoteLive do
 
   def handle_event("en-language", _, socket) do
     Gettext.put_locale("en")
-    socket = assign(socket, laguage: "en")
+    socket = assign(socket, language: "en")
 
     send(self(), {:get_quote, socket.assigns})
 
     {:noreply, force_rerender(socket)}
   end
 
-  def handle_event("next-quote", %{"key" => " "}, socket) do
+  def handle_event("next-quote-click", _, socket) do
     send(self(), {:get_quote, socket.assigns})
 
     {:noreply, socket}
   end
 
-  def handle_event("next-quote", _key, socket) do
-    {:noreply, socket}
-  end
-
-  def handle_event("next-quote-button", _, socket) do
-    send(self(), {:get_quote, socket.assigns})
-
-    {:noreply, socket}
-  end
-
-  def handle_info({:get_quote, %{quote: previous_quote, laguage: language}}, socket) do
+  def handle_info({:get_quote, %{quote: previous_quote, language: language}}, socket) do
     case get_random_quote(language) do
       next_quote when next_quote == previous_quote ->
         send(self(), {:get_quote, socket.assigns})

@@ -18,6 +18,20 @@ config :good_vibes, GoodVibesWeb.Endpoint,
   pubsub_server: GoodVibes.PubSub,
   live_view: [signing_salt: "8IS8tIvw"]
 
+# Spreadsheet's configuration
+config :good_vibes, GoodVibes.Spreadsheet.Repo.Http,
+  spreadsheet_id: System.get_env("SPREADSHEET_ID")
+
+config :goth, json: {:system, "GOOGLE_CREDENTIALS"}
+
+# Google Spreadsheets configuration
+config :elixir_google_spreadsheets, :client,
+  request_workers: 5,
+  max_demand: 10,
+  max_interval: :timer.minutes(1),
+  interval: 100,
+  request_opts: [recv_timeout: :timer.seconds(10)]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
