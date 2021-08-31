@@ -19,7 +19,8 @@ config :good_vibes, GoodVibesWeb.Endpoint,
   live_view: [signing_salt: "8IS8tIvw"]
 
 # Spreadsheet's configuration
-config :good_vibes, GoodVibes.Spreadsheet.Repo.Http, spreadsheet_id: {:system, "SPREADSHEET_ID"}
+config :good_vibes, GoodVibes.Spreadsheet.Repo.Http,
+  spreadsheet_id: System.get_env("SPREADSHEET_ID")
 
 config :goth, json: {:system, "GOOGLE_CREDENTIALS"}
 
