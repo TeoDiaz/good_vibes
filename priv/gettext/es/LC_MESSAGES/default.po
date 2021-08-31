@@ -12,16 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-format
-#: lib/good_vibes_web/templates/quote/quote.html.leex:15
-msgid "Hit"
-msgstr "Pulsa"
-
-#, elixir-format
-#: lib/good_vibes_web/templates/quote/quote.html.leex:17
-msgid "Space"
-msgstr "Espacio"
-
-#, elixir-format
 #: lib/good_vibes_web/live/page_live.html.leex:2
 msgid "Welcome to %{name}!"
 msgstr ""
@@ -32,11 +22,66 @@ msgid "Your daily quote"
 msgstr "Tu frase del dia"
 
 #, elixir-format
-#: lib/good_vibes_web/templates/quote/quote.html.leex:19
-msgid "or Click"
-msgstr "o haz Click"
-
-#, elixir-format
-#: lib/good_vibes_web/live/quote_live.ex:20
+#: lib/good_vibes_web/live/quote_live.ex:25
 msgid "No quote today"
 msgstr "No hay frases hoy"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/quote.html.leex:15
+msgid "Press Click to get another quote"
+msgstr "Haz Click para ver otra frase"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/quote.html.leex:25
+msgid "Add your quote"
+msgstr "Añade tu frase"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:24
+msgid "Country"
+msgstr "Pais"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:16
+msgid "Name"
+msgstr "Nombre"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:5
+msgid "THANKS FOR CONTRIBUTING"
+msgstr "GRACIAS POR CONTRIBUIR"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:20
+msgid "Your Quote"
+msgstr "Tu frase del dia"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:25
+msgid "Your country"
+msgstr "Tu pais"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:10
+msgid "Your quote was sent successfully"
+msgstr "Tu frase se ha enviado correctamente"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:17
+msgid "Your name"
+msgstr "Tu nombre"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:21
+msgid "Max 100 characters"
+msgstr "Max 100 caracteres"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:27
+msgid "Send"
+msgstr "Enviar"
+
+#, elixir-format
+#: lib/good_vibes_web/templates/quote/new_quote_form.html.leex:27
+msgid "Sending..."
+msgstr "Enviando..."
