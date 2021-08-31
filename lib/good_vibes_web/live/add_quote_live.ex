@@ -25,9 +25,9 @@ defmodule GoodVibesWeb.AddQuoteLive do
       ) do
     with :ok <- Spreadsheet.write(name, new_quote, country) do
       {:noreply, assign(socket, banner: true)}
+    else
+      _ -> {:noreply, socket}
     end
-
-    {:noreply, socket}
   end
 
   def handle_event("es-language", _, socket) do

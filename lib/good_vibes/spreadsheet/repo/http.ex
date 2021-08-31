@@ -23,7 +23,7 @@ defmodule GoodVibes.Spreadsheet.Repo.Http do
 
   def write(name, new_quote, country) do
     with {:ok, pid} <- spreadsheet(),
-         :ok <- Spreadsheet.write_row(pid, get_next_empty_row(), [name, new_quote, country]) do
+         :ok <- Spreadsheet.append_row(pid, 1, [name, new_quote, country]) do
       :ok
     else
       error ->
