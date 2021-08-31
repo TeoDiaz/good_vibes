@@ -15,4 +15,8 @@ https://daily-reminders.herokuapp.com/
 
 ### Contributions
 
-Missing a motivational quote that you would like to add? Leave us a PR and let's add it. 
+Missing a motivational quote that you would like to add? 
+
+Visit https://daily-reminders.herokuapp.com/add_quote
+
+<img src="assets/static/images/form.png" height=500 width=400>
