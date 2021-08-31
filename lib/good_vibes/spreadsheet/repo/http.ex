@@ -31,12 +31,6 @@ defmodule GoodVibes.Spreadsheet.Repo.Http do
     end
   end
 
-  def get_next_empty_row() do
-    with {:ok, [_head | quotes]} <- fetch() do
-      length(quotes) + 2
-    end
-  end
-
   defp spreadsheet(opts \\ []) do
     :good_vibes
     |> Application.get_env(__MODULE__)
