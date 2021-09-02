@@ -4,12 +4,13 @@ defmodule GoodVibesWeb.AddQuoteLive do
   alias GoodVibes.Spreadsheet.Repo.Http, as: Spreadsheet
 
   @default_locale "en"
+  @accepted_locales ~w(es en)
 
   def mount(params, _, socket) do
     locale =
       case fetch_locale(params) do
-        nil -> @default_locale
-        lang -> lang
+        lang when lang in @accepted_locales -> lang
+        _ -> @default_locale
       end
 
     Gettext.put_locale(locale)

@@ -3,11 +3,12 @@ defmodule GoodVibesWeb.QuoteLive do
 
   @quotes "priv/quotes.json"
   @default_locale "en"
+  @accepted_locales ~w(es en)
   def mount(params, session, socket) do
     locale =
       case fetch_locale(params, session) do
-        nil -> @default_locale
-        lang -> lang
+        lang when lang in @accepted_locales -> lang
+        _ -> @default_locale
       end
 
     Gettext.put_locale(locale)
