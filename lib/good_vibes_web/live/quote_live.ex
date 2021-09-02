@@ -2,11 +2,12 @@ defmodule GoodVibesWeb.QuoteLive do
   use GoodVibesWeb, :live_view
 
   @quotes "priv/quotes.json"
-  def mount(_params, session, socket) do
+  @default_locale "en"
+  def mount(params, session, socket) do
     locale =
-      case session do
-        %{"locale" => locale} -> locale
-        _ -> "en"
+      case fetch_locale(params, session) do
+        nil -> @default_locale
+        lang -> lang
       end
 
     Gettext.put_locale(locale)
@@ -72,4 +73,8 @@ defmodule GoodVibesWeb.QuoteLive do
   defp force_rerender(socket, fingerprint \\ :x) do
     update(socket, fingerprint, &(&1 + 1))
   end
+
+  defp fetch_locale(%{"language" => lang}, _session), do: lang
+  defp fetch_locale(_params, %{"locale" => locale}), do: locale
+  defp fetch_locale(_, _), do: nil
 end

@@ -3,14 +3,17 @@ defmodule GoodVibesWeb.AddQuoteLive do
 
   alias GoodVibes.Spreadsheet.Repo.Http, as: Spreadsheet
 
-  def mount(_params, session, socket) do
+  @default_locale "en"
+
+  def mount(params, _, socket) do
     locale =
-      case session do
-        %{"locale" => locale} -> locale
-        _ -> "en"
+      case fetch_locale(params) do
+        nil -> @default_locale
+        lang -> lang
       end
 
     Gettext.put_locale(locale)
+
     {:ok, assign(socket, language: locale, banner: false, x: 0)}
   end
 
@@ -22,12 +25,17 @@ defmodule GoodVibesWeb.AddQuoteLive do
         "add-quote",
         %{"new_quote" => %{"name" => name, "new_quote" => new_quote, "country" => country}},
         socket
-      ) do
+      )
+      when is_binary(new_quote) and byte_size(new_quote) > 0 do
     with :ok <- Spreadsheet.write(name, new_quote, country) do
       {:noreply, assign(socket, banner: true)}
     else
       _ -> {:noreply, socket}
     end
+  end
+
+  def handle_event("add-quote", _, socket) do
+    {:noreply, socket}
   end
 
   def handle_event("es-language", _, socket) do
@@ -51,4 +59,7 @@ defmodule GoodVibesWeb.AddQuoteLive do
   defp force_rerender(socket, fingerprint \\ :x) do
     update(socket, fingerprint, &(&1 + 1))
   end
+
+  defp fetch_locale(%{"language" => lang}), do: lang
+  defp fetch_locale(_), do: nil
 end
