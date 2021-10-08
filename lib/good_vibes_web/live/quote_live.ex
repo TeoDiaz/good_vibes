@@ -4,6 +4,8 @@ defmodule GoodVibesWeb.QuoteLive do
   @quotes "priv/quotes.json"
   @default_locale "en"
   @accepted_locales ~w(es en)
+  @default_author "Anonymous"
+
   def mount(params, session, socket) do
     locale =
       case fetch_locale(params, session) do
@@ -62,6 +64,10 @@ defmodule GoodVibesWeb.QuoteLive do
 
       [new_quote, author] ->
         socket = assign(socket, quote: new_quote, author: author)
+        {:noreply, socket}
+
+      [new_quote | _] ->
+        socket = assign(socket, quote: new_quote, author: @default_author)
         {:noreply, socket}
     end
   end
