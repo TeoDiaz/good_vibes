@@ -1,7 +1,7 @@
 # Daily Reminders
 
 <div align="center">
-  <img src="assets/static/images/example-quote.png">
+  <img src="assets/static/images/new-style.png">
 </div>
 
 #### Start the morning with a motivational quote and if you don't like it, try a new one just in one click. 
