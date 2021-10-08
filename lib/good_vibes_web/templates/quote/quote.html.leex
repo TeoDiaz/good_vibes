@@ -3,15 +3,13 @@
       <div class="antialiased">
          <div class="mt-6 sm:mt-0 sm:py-12">
             <div class="mt-8 max-w-5xl mx-auto px-8">
-               <h1 class="text-center">
-                  <span class="py-4 block text-xl text-gray-600 leading-tight">
-                     <%= @x && gettext("Your daily quote") %>
-                  </span>
-                  <span class="block font-bold leading-none">
-                     <%= @quote %>
-                  </span>
-               </h1>
-               <div class="px-4 text-center">
+                  <div class="text-center">
+                     <blockquote class="shadow-quote">
+                        <p class="quote">"<%= @quote  %>"</p>
+                        <cite class="author"><%= @author %></cite>
+                     </blockquote>
+                  </div>
+               <div class="px-4 text-center text-gray-400">
                   <%= @x && gettext("Press Click to get another quote") %>
                </div>
             </div>

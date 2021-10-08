@@ -4,6 +4,8 @@ defmodule GoodVibesWeb.QuoteLive do
   @quotes "priv/quotes.json"
   @default_locale "en"
   @accepted_locales ~w(es en)
+  @default_author "Anonymous"
+
   def mount(params, session, socket) do
     locale =
       case fetch_locale(params, session) do
@@ -12,7 +14,8 @@ defmodule GoodVibesWeb.QuoteLive do
       end
 
     Gettext.put_locale(locale)
-    {:ok, assign(socket, quote: get_random_quote(locale), language: locale, x: 0)}
+    [new_quote, author] = get_random_quote(locale)
+    {:ok, assign(socket, quote: new_quote, author: author, language: locale, x: 0)}
   end
 
   def render(assigns) do
@@ -54,13 +57,17 @@ defmodule GoodVibesWeb.QuoteLive do
 
   def handle_info({:get_quote, %{quote: previous_quote, language: language}}, socket) do
     case get_random_quote(language) do
-      next_quote when next_quote == previous_quote ->
+      [new_quote, _author] when new_quote == previous_quote ->
         send(self(), {:get_quote, socket.assigns})
 
         {:noreply, socket}
 
-      next_quote ->
-        socket = assign(socket, :quote, next_quote)
+      [new_quote, author] ->
+        socket = assign(socket, quote: new_quote, author: author)
+        {:noreply, socket}
+
+      [new_quote | _] ->
+        socket = assign(socket, quote: new_quote, author: @default_author)
         {:noreply, socket}
     end
   end
