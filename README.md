@@ -11,12 +11,12 @@
 
 ## Try it: 
 
-https://daily-reminders.herokuapp.com/
+https://daily-remainders.herokuapp.com/
 
 ### Contributions
 
 Missing a motivational quote that you would like to add? 
 
-Visit https://daily-reminders.herokuapp.com/add_quote
+Visit https://daily-remainders.herokuapp.com/add_quote
 
 <img src="assets/static/images/form.png" height=500 width=400>
